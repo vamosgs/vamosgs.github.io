@@ -7,7 +7,7 @@ const development = require('./webpack.config.dev');
 const PATHS = require('./PATHS');
 require('dotenv').config();
 
-const { ANALYZE, ENV } = process.env;
+const { ENV } = process.env;
 const pathsToClean = ['dist'];
 
 const cleanOptions = {
@@ -27,9 +27,7 @@ const common = {
     modules: ['node_modules', PATHS.SRC],
     extensions: ['.js', '.jsx', '.json', '.css'],
   },
-  plugins: [
-    new CleanWebpackPlugin(pathsToClean, cleanOptions),
-  ],
+  plugins: [new CleanWebpackPlugin(pathsToClean, cleanOptions)],
   optimization: {
     namedModules: true,
     splitChunks: {
@@ -59,6 +57,14 @@ const common = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000',
+      },
+      {
+        test: /\.(jpe?g|png|gif|ico)$/i,
+        loader: 'file?name=[name].[ext]',
       },
     ],
   },
