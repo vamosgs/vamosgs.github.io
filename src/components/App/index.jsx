@@ -6,7 +6,7 @@ import Navigation from '../Navigation';
 const App = () => (
   <div>
     <TitleAnim />
-    {/* <Navigation /> */}
+    <Navigation />
   </div>
 );
 

@@ -4,6 +4,8 @@ import './styles.less';
 const Navigation = () => (
   <ul>
     <li>Loved Stack</li>
+    <li>Projects</li>
+    <li>Packages</li>
     <li>Contacts</li>
   </ul>
 );

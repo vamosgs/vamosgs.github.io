@@ -25,7 +25,7 @@ const common = {
   },
   resolve: {
     modules: ['node_modules', PATHS.SRC],
-    extensions: ['.js', '.jsx', '.json', '.css'],
+    extensions: ['.js', '.jsx', '.json', '.less'],
   },
   plugins: [new CleanWebpackPlugin(pathsToClean, cleanOptions)],
   optimization: {

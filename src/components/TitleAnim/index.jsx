@@ -6,25 +6,29 @@ import './styles.less';
 class TitleAnim extends Component {
   constructor() {
     super();
-    this.state = { show: false };
+    this.state = { showBigTitle: false, showSubTitle: false };
   }
 
   componentDidMount() {
     setTimeout(() => {
-      this.setState({ show: true });
-    }, 1000);
+      this.setState({ showBigTitle: true }, () => {
+        setTimeout(() => {
+          this.setState({ showSubTitle: true });
+        }, 1200);
+      });
+    }, 500);
   }
 
   render() {
     return (
-      <Fragment>
+      <div className="Titles">
         <h1 className="title">
-          <ReactRevealText show={this.state.show}>{title}</ReactRevealText>
+          <ReactRevealText show={this.state.showBigTitle}>{title}</ReactRevealText>
         </h1>
         <h1 className="title">
-          <ReactRevealText show={this.state.show}>{name}</ReactRevealText>
+          <ReactRevealText show={this.state.showSubTitle}>{name}</ReactRevealText>
         </h1>
-      </Fragment>
+      </div>
     );
   }
 }
