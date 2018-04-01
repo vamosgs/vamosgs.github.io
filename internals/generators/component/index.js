@@ -14,12 +14,16 @@ module.exports = {
       choices: () => ['Stateless', 'Stateful'],
     },
   ],
-  actions: data => {
+  actions: (data) => {
     let componentTemplate;
 
     switch (data.type) {
       case 'Stateless': {
         componentTemplate = './component/templates/stateless.hbs';
+        break;
+      }
+      case 'Stateful': {
+        componentTemplate = './component/templates/stateful.hbs';
         break;
       }
       default: {

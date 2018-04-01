@@ -1,12 +1,13 @@
 {
   "parser": "babel-eslint",
-  "extends": ["plugin:flowtype/recommended", "airbnb"],
+  "extends": ["airbnb"],
   "plugins": ["prettier"],
   "globals": {
     "document": true,
     "window": true
   },
   "rules": {
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "no-console": 0
   }
 }

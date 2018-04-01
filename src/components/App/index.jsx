@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles.less';
+import TitleAnim from '../TitleAnim';
 
 const App = () => (
   <div>
-    {/* Your code here */}
-    <h1 className="title">VamOSGS</h1>
+    <TitleAnim />
   </div>
 );
 

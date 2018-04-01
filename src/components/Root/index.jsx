@@ -1,10 +1,9 @@
-// @flow
-
 import React from 'react';
 import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import App from '../App';
 import store from '../../store';
+import './styles.less';
 
 const Root = () => (
   <Provider store={store}>
