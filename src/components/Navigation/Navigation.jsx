@@ -34,7 +34,7 @@ class Navigation extends Component {
         {!pathCheck && (
           <li className="close">
             <Link to="/" href="/">
-              close
+              close (x)
             </Link>
           </li>
         )}
