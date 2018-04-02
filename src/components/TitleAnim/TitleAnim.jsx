@@ -25,12 +25,12 @@ class TitleAnim extends Component {
         <h2>
           <ReactRevealText show={this.state.showSubTitle}>{work}</ReactRevealText>
         </h2>
-        <h1 className="title">
+        <h1 className="title" >
           <ReactRevealText show={this.state.showBigTitle}>{title}</ReactRevealText>
         </h1>
-        <h1 className="title">
+        <h2>
           <ReactRevealText show={this.state.showSubTitle}>{name}</ReactRevealText>
-        </h1>
+        </h2>
       </div>
     );
   }

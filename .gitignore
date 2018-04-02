@@ -1,4 +1,4 @@
 node_modules
 yarn-error.log
 dist
-data.js
+src/api.js
