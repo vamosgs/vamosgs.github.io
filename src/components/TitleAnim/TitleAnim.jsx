@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ReactRevealText from 'react-reveal-text';
-import { title, name } from '../../../content';
-import './styles.less';
+import { title, name, work } from '../../../content';
+import './TitleAnimStyles.less';
 
 class TitleAnim extends Component {
   constructor() {
@@ -22,6 +22,9 @@ class TitleAnim extends Component {
   render() {
     return (
       <div className="Titles">
+        <h2>
+          <ReactRevealText show={this.state.showSubTitle}>{work}</ReactRevealText>
+        </h2>
         <h1 className="title">
           <ReactRevealText show={this.state.showBigTitle}>{title}</ReactRevealText>
         </h1>
