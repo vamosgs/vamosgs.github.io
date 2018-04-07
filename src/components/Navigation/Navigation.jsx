@@ -27,17 +27,9 @@ class Navigation extends Component {
   }
   render() {
     const { linksRender } = this.state;
-    const pathCheck = window.location.pathname === '/';
     return (
       <ul className={`nav ${this.state.open && 'open'}`}>
         {linksRender.map((options, i) => <Li key={i} name={options.name} link={options.link} />)}
-        {!pathCheck && (
-          <li className="close">
-            <Link to="/" href="/">
-              close (x)
-            </Link>
-          </li>
-        )}
       </ul>
     );
   }

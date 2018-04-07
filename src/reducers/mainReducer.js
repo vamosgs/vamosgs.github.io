@@ -1,7 +1,11 @@
-const mainReducer = (state = {}, action) => {
-  switch (action.type) {
-    // Your cases here
+import * as types from '../constants';
 
+const initialState = {};
+
+const mainReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.TEST:
+      return { ...state };
     default:
       return state;
   }

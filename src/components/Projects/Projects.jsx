@@ -3,11 +3,7 @@ import './ProjectsStyles.less';
 
 class Projects extends Component {
   render() {
-    return (
-      <div className="Projects modul">
-        {this.props.title} Component
-      </div>
-    );
+    return <div className="Projects modul">{this.props.title} Component</div>;
   }
 }
 

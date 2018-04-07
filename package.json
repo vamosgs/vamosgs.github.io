@@ -5,11 +5,11 @@
   "main": "index.js",
   "license": "ISC",
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --config webpack/webpack.config.js --hot",
-    "build": "./node_modules/.bin/webpack --config webpack/webpack.config.js",
-    "deploy": "./node_modules/.bin/gh-pages -b master -d dist",
-    "eslint": "./node_modules/.bin/eslint",
-    "gen": "./node_modules/.bin/plop --plopfile ./internals/generators/index.js"
+    "start": "webpack-dev-server --config webpack/webpack.config.js --hot",
+    "build": "webpack --config webpack/webpack.config.js",
+    "deploy": "gh-pages -b master -d dist",
+    "eslint": "eslint",
+    "gen": "plop --plopfile ./internals/generators/index.js"
   },
   "repository": {
     "type": "git",
@@ -60,6 +60,7 @@
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-hot-loader": "^4.0.0",
+    "react-icons": "^2.2.7",
     "react-redux": "^5.0.7",
     "react-reveal-text": "^0.1.1",
     "react-router-dom": "^4.2.2",
