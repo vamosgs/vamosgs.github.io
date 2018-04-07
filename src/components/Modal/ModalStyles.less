@@ -7,18 +7,24 @@
   align-items: center;
   flex-direction: column;
   padding-bottom: 20px;
+  opacity: 0;
+  transition: 0.5s;
   .close {
     text-align: right;
     width: calc(100% - 30px);
     font-size: 30px;
-    transition: 0.5s;
+    transition: 1.8s;
     margin-top: 10px;
     &:hover {
       color: rgb(90, 90, 90);
-      filter: drop-shadow(2px 2px 7px rgba(0,0,0,.7));  
+      filter: drop-shadow(2px 2px 7px rgba(0, 0, 0, 0.7));
     }
     &:active {
-      filter: drop-shadow(3px 3px 3px rgba(0,0,0,.7));  
+      filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.7));
     }
   }
+}
+
+.acitve {
+  opacity: 1;
 }

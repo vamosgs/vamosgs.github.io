@@ -60,11 +60,29 @@ const common = {
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000',
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 100000,
+              name: 'assets/[name].[ext]',
+            },
+          },
+        ],
       },
       {
-        test: /\.(jpe?g|png|gif|ico)$/i,
-        loader: 'file?name=[name].[ext]',
+        test: /\.(jpe?g|png|gif|ico|svg)$/,
+        exclude: /(node_modules)/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              publicPath: 'assets/',
+              outputPath: 'assets/',
+            },
+          },
+        ],
       },
     ],
   },

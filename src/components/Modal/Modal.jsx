@@ -5,28 +5,44 @@ import Projects from '../Projects';
 import Stack from '../Stack';
 import './ModalStyles.less';
 
-const Modal = ({ animate }) => {
-  console.log(animate);
-  const pathCheck = window.location.pathname === '/';
-  if (!pathCheck) {
-    return (
-      <div className="Modal">
-        <div className="close">
-          <Link to="/" href="/">
-            <MdClose />
-          </Link>
-        </div>
-        <Switch>
-          <Route path="/stack" component={Stack} />
-          <Route path="/projects" render={() => <Projects title="projects" />} />
-          <Route path="/packages" render={() => <Projects title="packages" />} />
-          <Route path="/designs" render={() => <Projects title="designs" />} />
-          <Route path="/contacts" render={() => <Projects title="contacts" />} />
-        </Switch>
-      </div>
-    );
+class Modal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      animate: false,
+    };
   }
-  return null;
-};
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ animate: true });
+    }, 2500);
+  }
+  handleClick = () => {
+    this.setState({ animate: false });
+  };
+  render() {
+    const pathCheck = window.location.pathname === '/';
+    if (!pathCheck) {
+      return (
+        <div className={`Modal ${this.state.animate ? 'acitve' : null}`}>
+          <div className="close">
+            <Link onClick={this.handleClick} to="/" href="/">
+              <MdClose />
+            </Link>
+          </div>
+          <Switch>
+            <Route path="/stack" component={Stack} />
+            <Route path="/projects" render={() => <Projects title="projects" />} />
+            <Route path="/packages" render={() => <Projects title="packages" />} />
+            <Route path="/designs" render={() => <Projects title="designs" />} />
+            <Route path="/contacts" render={() => <Projects title="contacts" />} />
+          </Switch>
+        </div>
+      );
+    }
+    return null;
+  }
+}
 
 export default Modal;

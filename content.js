@@ -3,7 +3,19 @@ module.exports = {
   name: 'Gegham Samvelyan',
   work: 'Developer/Designer',
   stack: {
-    frontend: ['React', 'Redux', 'Webpack', 'Flow'],
-    backend: ['Node', 'Koa', 'Mongo', 'express'],
+    frontend: [
+      { name: 'React', image: 'react.png' },
+      { name: 'Redux', image: 'redux.png' },
+      { name: 'Webpack', image: 'webpack.png' },
+      { name: 'Flow', image: 'flow.svg' },
+      { name: 'Less', image: 'less.svg' },
+      { name: 'Sass', image: 'sass.svg' },
+    ],
+    backend: [
+      { name: 'Node', image: 'node.png' },
+      { name: 'Koa', image: 'koa.png' },
+      { name: 'MongoDB', image: 'mongo.png' },
+      { name: 'express', image: 'express.png' },
+    ],
   },
 };
