@@ -18,7 +18,6 @@ class TitleAnim extends Component {
       });
     }, 500);
   }
-
   render() {
     return (
       <div className="Titles">

@@ -9,11 +9,13 @@
   "rules": {
     "no-unused-vars": "warn",
     "react/no-unused-state": "warn",
+    "no-undef": 0,
     "no-console": 0,
     "react/prefer-stateless-function": 0,
     "react/prop-types": 0,
     "react/no-array-index-key": 0,
     "jsx-a11y/click-events-have-key-events": 0,
-    "jsx-a11y/no-noninteractive-element-interactions": 0
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "import/prefer-default-export": 0
   }
 }
