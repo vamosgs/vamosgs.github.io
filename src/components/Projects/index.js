@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import Projects from './Projects';
 import { fetchProjects } from '../../actions';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = ({ mainReducer }) => ({
+  projects: mainReducer.projects,
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchProjects: () => dispatch(fetchProjects()),

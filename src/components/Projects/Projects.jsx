@@ -3,10 +3,19 @@ import './ProjectsStyles.less';
 
 class Projects extends Component {
   componentDidMount() {
-    this.props.fetchProjects();
+    if (this.props.projects.length === 0) {
+      this.props.fetchProjects();
+    }
   }
   render() {
-    return <div className="Projects modul">{this.props.title} Component</div>;
+    const { projects } = this.props;
+    return (
+      <div className="Projects modul">
+        <ul>
+          {projects.map((project, key) => <li key={key}>{project.name}</li>)}
+        </ul>
+      </div>
+    );
   }
 }
 

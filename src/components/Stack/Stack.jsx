@@ -1,7 +1,6 @@
 import React from 'react';
 import { stack } from '../../../content';
 import './StackStyles.less';
-import './asstes';
 
 class Stack extends React.Component {
   constructor(props) {

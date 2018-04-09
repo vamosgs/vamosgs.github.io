@@ -1,20 +1,17 @@
-import axios from 'axios';
 import api from '../api';
 import * as types from '../constants';
-// export const api = url => fetch(url).then(response => response.json());
 
-export const setProjects = paylod => ({
+export const setProjects = payload => ({
   type: types.GET_PROJECTS,
-  paylod,
+  payload,
 });
 
 export const fetchProjects = () => dispatch =>
-  axios({
-    method: 'GET',
-    headers: { 'User-Agent': 'VamOSGS' },
-    url: api.github,
+  fetch(api.github, {
+    headers: {
+      'user-agent': 'Mozilla/4.0 MDN Example',
+      'content-type': 'application/json',
+    },
   })
-    .then(res => res.data)
-    .then((res) => {
-      dispatch(setProjects(res));
-    });
+    .then(res => res.json())
+    .then(res => dispatch(setProjects(res)));

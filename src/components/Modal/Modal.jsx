@@ -3,6 +3,9 @@ import { Route, Switch, Link } from 'react-router-dom';
 import MdClose from 'react-icons/lib/md/close';
 import Projects from '../Projects';
 import Stack from '../Stack';
+import Packages from '../Packages';
+import Designs from '../Designs';
+import Contacts from '../Contacts';
 import './ModalStyles.less';
 
 class Modal extends React.Component {
@@ -32,11 +35,11 @@ class Modal extends React.Component {
             </Link>
           </div>
           <Switch>
-            <Route path="/stack" component={Stack} />
-            <Route path="/projects" render={() => <Projects title="projects" />} />
-            <Route path="/packages" render={() => <Projects title="packages" />} />
-            <Route path="/designs" render={() => <Projects title="designs" />} />
-            <Route path="/contacts" render={() => <Projects title="contacts" />} />
+            <Route path="/stack" render={() => <Stack />} />
+            <Route path="/projects" render={() => <Projects />} />
+            <Route path="/packages" render={() => <Packages />} />
+            <Route path="/designs" render={() => <Designs />} />
+            <Route path="/contacts" render={() => <Contacts />} />
           </Switch>
         </div>
       );

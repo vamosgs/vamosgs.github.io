@@ -2,16 +2,14 @@ import * as types from '../constants';
 
 const initialState = {
   tumblr_designs: {},
+  projects: [],
 };
 
 const mainReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'INCREMENT':
+    case types.GET_PROJECTS:
       console.log(action.payload);
-      return { ...state, nice: true };
-    case types.GET_DESIGNS_TUMBLR:
-      console.log(action.data);
-      return { ...state };
+      return { ...state, projects: action.payload };
     default:
       return state;
   }
