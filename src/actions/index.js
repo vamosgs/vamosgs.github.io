@@ -1,17 +1,33 @@
 import api from '../api';
 import * as types from '../constants';
+import { filterProjects, fetchApi } from '../utlis';
+import { projects } from '../../content';
 
 export const setProjects = payload => ({
   type: types.GET_PROJECTS,
   payload,
 });
 
+export const setPackages = payload => ({
+  type: types.GET_PACKAGES,
+  payload,
+});
+
 export const fetchProjects = () => dispatch =>
-  fetch(api.github, {
+  fetchApi(api.github, {
     headers: {
-      'user-agent': 'Mozilla/4.0 MDN Example',
+      'user-agent': 'vamosgs',
       'content-type': 'application/json',
     },
-  })
-    .then(res => res.json())
-    .then(res => dispatch(setProjects(res)));
+  }).then(res => dispatch(setProjects(filterProjects(res, projects))));
+
+export const fetchPackages = () => (dispatch) => {
+  let packages = [];
+  api.npm.forEach(url =>
+    fetchApi(url, {}).then((res) => {
+      packages = [...packages, res.collected.metadata];
+      if (packages.length === 2) {
+        dispatch(setPackages(packages));
+      }
+    }));
+};

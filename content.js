@@ -2,6 +2,7 @@ module.exports = {
   title: 'VamOSGS',
   name: 'Gegham Samvelyan',
   work: 'Developer/Designer',
+  projects: ['react-preloaders', 'jwt-koa', 'koa-starter'],
   stack: {
     frontend: [
       { name: 'React', image: 'react.png' },

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './ProjectsStyles.less';
 
+const List = ({ iterable }) => (
+  <ul>{iterable.map((project, key) => <li key={key}>{project.name}</li>)}</ul>
+);
+
 class Projects extends Component {
   componentDidMount() {
     if (this.props.projects.length === 0) {
@@ -11,9 +15,8 @@ class Projects extends Component {
     const { projects } = this.props;
     return (
       <div className="Projects modul">
-        <ul>
-          {projects.map((project, key) => <li key={key}>{project.name}</li>)}
-        </ul>
+        <List iterable={projects} />
+        {/* <ul>{projects.map((project, key) => <li key={key}>{project.name}</li>)}</ul> */}
       </div>
     );
   }

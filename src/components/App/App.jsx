@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './AppStyles.less';
 import TitleAnim from '../TitleAnim';
 import Navigation from '../Navigation';
 import Modal from '../Modal';
-import './assets';
 
 const App = () => (
-  <div>
+  <Fragment>
     <TitleAnim />
     <Navigation />
     <Modal />
-  </div>
+  </Fragment>
 );
 
 export default App;
