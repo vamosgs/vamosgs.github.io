@@ -13,6 +13,16 @@ export const setPackages = payload => ({
   payload,
 });
 
+export const setTumblrDesigns = payload => ({
+  type: types.GET_DESIGNS_TUMBLR,
+  payload,
+});
+
+export const setBehanceDesigns = payload => ({
+  type: types.GET_DESIGNS_BEHANCE,
+  payload,
+});
+
 export const fetchProjects = () => dispatch =>
   fetchApi(api.github, {
     headers: {
@@ -31,3 +41,14 @@ export const fetchPackages = () => (dispatch) => {
       }
     }));
 };
+
+export const fetchTumblrDesigns = () => dispatch =>
+  fetchApi(api.tumblr).then(data => dispatch(setTumblrDesigns(data.response.posts)));
+export const fetchBehanceDesigns = () => dispatch =>
+  fetchApi(api.behance, {
+    headers: {
+      Accept: '*/*',
+      'Accept-Encoding': 'gzip, deflate',
+      'User-Agent': 'vamosgs',
+    },
+  }).then(res => dispatch(setBehanceDesigns(res.projects)));
