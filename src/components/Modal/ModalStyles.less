@@ -1,6 +1,6 @@
 /* Styles of Modal Component */
 .Modal {
-  margin-top: 20px;
+  margin: 20px auto;
   height: 100%;
   border: 1px solid;
   display: flex;
@@ -9,16 +9,14 @@
   padding-bottom: 20px;
   opacity: 0;
   transition: 0.5s;
+  max-width: 990px;
+  height: auto;
+  @media only screen and (max-width: 990px) {
+    max-width: 80%;
+  }
   @media only screen and (max-width: 570px) {
-    margin-bottom: -200px;
-    // margin-top: 100px;
-  }
-  @media only screen and (max-width: 375px) {
-    margin-bottom: -400px;
-  }
-  @media only screen and (max-width: 360px) {
-    margin-bottom: -550px;
-    padding-bottom: 10px;
+    max-width: 90%;
+    width: 100%;
   }
   .close {
     text-align: right;

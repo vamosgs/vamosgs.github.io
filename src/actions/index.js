@@ -19,7 +19,10 @@ export const fetchProjects = () => dispatch =>
       'user-agent': 'vamosgs',
       'content-type': 'application/json',
     },
-  }).then(res => dispatch(setProjects(filterProjects(res, projects))));
+  }).then(res =>
+    (projects[0] !== 'all'
+      ? dispatch(setProjects(filterProjects(res, projects)))
+      : dispatch(setProjects(res))));
 
 export const fetchPackages = () => (dispatch) => {
   let packages = [];

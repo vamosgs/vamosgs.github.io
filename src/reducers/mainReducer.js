@@ -1,7 +1,10 @@
 import * as types from '../constants';
 
 const initialState = {
-  tumblr_designs: [],
+  designs: {
+    tumblr: {},
+    behance: {},
+  },
   projects: [],
   packages: [],
 };

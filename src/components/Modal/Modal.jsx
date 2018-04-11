@@ -17,29 +17,27 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    setTimeout(() => {
       this.setState({ animate: true });
     }, 2500);
   }
-  handleClick = () => {
-    this.setState({ animate: false });
-  };
   render() {
+    const name = window.location.pathname.split('/')[1];
     const pathCheck = window.location.pathname === '/';
     if (!pathCheck) {
       return (
-        <div className={`Modal ${this.state.animate ? 'acitve' : null}`}>
+        <div className={`Modal ${name} ${this.state.animate ? 'acitve' : null}`}>
           <div className="close">
-            <Link onClick={this.handleClick} to="/" href="/">
+            <Link to="/" href="/">
               <MdClose />
             </Link>
           </div>
           <Switch>
-            <Route path="/stack" render={() => <Stack />} />
-            <Route path="/projects" render={() => <Projects />} />
-            <Route path="/packages" render={() => <Packages />} />
-            <Route path="/designs" render={() => <Designs />} />
-            <Route path="/contacts" render={() => <Contacts />} />
+            <Route path="/stack" component={Stack} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/packages" component={Packages} />
+            <Route path="/designs" component={Designs} />
+            <Route path="/contacts" component={Contacts} />
           </Switch>
         </div>
       );

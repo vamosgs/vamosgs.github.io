@@ -14,7 +14,7 @@ class Packages extends Component {
     const { packages } = this.props;
     return (
       <div className="Packages">
-        <List iterable={packages} />
+        {packages.length !== 0 ? <List iterable={packages} /> : <h2>Loading...</h2>}
       </div>
     );
   }
