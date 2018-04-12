@@ -6,11 +6,12 @@ const List = ({ iterable }) => (
       <ul key={key} className="line">
         {designs.map((design, k) => (
           <a
+            key={k}
             href={design.link_url || design.image_permalink}
             rel="noopener noreferrer"
             target="_blank"
           >
-            <li className="design" key={k}>
+            <li className="design">
               <img src={design.photos[0].alt_sizes[2].url} alt={design.slug} />
             </li>
           </a>

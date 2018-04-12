@@ -3,6 +3,10 @@ import * as types from '../constants';
 import { filterProjects, fetchApi, chunk } from '../utlis';
 import { projects } from '../../content';
 
+export const stackLoad = () => ({
+  type: types.STACK_LOAD,
+});
+
 export const setProjects = payload => ({
   type: types.GET_PROJECTS,
   payload,
