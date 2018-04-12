@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
+import List from './List';
 import './DesignsStyles.less';
 
 class Designs extends Component {
   componentDidMount() {
-    this.props.fetchTumblr();
-    this.props.fetchBehance();
+    if (this.props.designs.length === 0) {
+      this.props.fetchDesigns();
+    }
   }
   render() {
-    console.log(this.props);
-    const { behance, tumblr } = this.props;
+    const { designs } = this.props;
     return (
       <div className="Designs">
-        <ul>
-          {tumblr.map((item, key) => (
-            <li key={key}>
-              <img src={item.photos[0].alt_sizes[4].url} alt={item.slug} />
-            </li>
-          ))}
-        </ul>
+        <h2>Some of my designs:</h2>
+        <List iterable={designs} />
+        {/* {designs.length !== 0 ? <List iterable={designs} /> : <h2>Loading...</h2>} */}
       </div>
     );
   }

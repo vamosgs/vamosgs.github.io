@@ -3,7 +3,8 @@ module.exports = {
   name: 'Gegham Samvelyan',
   work: 'Developer/Designer',
   // projects: ['all'],
-  projects: ['react-preloaders', 'Infinite-scroll', 'jwt-koa', 'koa-starter', '2048game', 'chat-io', 'Store'],
+  // projects: [8],
+  projects: ['react-preloaders', 'Infinite-scroll', 'jwt-koa', 'koa-starter', '2048game', 'chat-io', 'Store', 'DiscussM-backend'],
   stack: {
     frontend: [
       { name: 'React', image: 'react.png' },

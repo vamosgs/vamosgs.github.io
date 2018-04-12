@@ -1,6 +1,6 @@
 import api from '../api';
 import * as types from '../constants';
-import { filterProjects, fetchApi } from '../utlis';
+import { filterProjects, fetchApi, chunk } from '../utlis';
 import { projects } from '../../content';
 
 export const setProjects = payload => ({
@@ -13,13 +13,8 @@ export const setPackages = payload => ({
   payload,
 });
 
-export const setTumblrDesigns = payload => ({
-  type: types.GET_DESIGNS_TUMBLR,
-  payload,
-});
-
-export const setBehanceDesigns = payload => ({
-  type: types.GET_DESIGNS_BEHANCE,
+export const setDesigns = payload => ({
+  type: types.GET_DESIGNS,
   payload,
 });
 
@@ -42,13 +37,5 @@ export const fetchPackages = () => (dispatch) => {
     }));
 };
 
-export const fetchTumblrDesigns = () => dispatch =>
-  fetchApi(api.tumblr).then(data => dispatch(setTumblrDesigns(data.response.posts)));
-export const fetchBehanceDesigns = () => dispatch =>
-  fetchApi(api.behance, {
-    headers: {
-      Accept: '*/*',
-      'Accept-Encoding': 'gzip, deflate',
-      'User-Agent': 'vamosgs',
-    },
-  }).then(res => dispatch(setBehanceDesigns(res.projects)));
+export const fetchDesigns = () => dispatch =>
+  fetchApi(api.tumblr).then(data => dispatch(setDesigns(chunk(data.response.posts, 3))));

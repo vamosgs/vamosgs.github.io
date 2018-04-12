@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 import Designs from './Designs';
-import { fetchTumblrDesigns, fetchBehanceDesigns } from '../../actions';
+import { fetchDesigns } from '../../actions';
 
 const mapStateToProps = ({ mainReducer }) => ({
-  tumblr: mainReducer.designs.tumblr,
-  behance: mainReducer.designs.behance,
+  designs: mainReducer.designs,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTumblr: () => dispatch(fetchTumblrDesigns()),
-  fetchBehance: () => dispatch(fetchBehanceDesigns()),
+  fetchDesigns: () => dispatch(fetchDesigns()),
 });
 
 const DesignsContainer = connect(mapStateToProps, mapDispatchToProps)(Designs);
