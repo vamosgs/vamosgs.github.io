@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from 'react-loader-spinner';
 import './PackagesStyles.less';
 import List from './List';
 
@@ -13,7 +14,12 @@ class Packages extends Component {
     return (
       <div className="Packages">
         <h2>Packages by me:</h2>
-        {packages.length !== 0 ? <List iterable={packages} /> : <h2>Loading...</h2>}
+
+        {packages.length !== 0 ? (
+          <List iterable={packages} />
+        ) : (
+          <Loader type="Puff" color="slategrey" height="50" width="50" />
+        )}
       </div>
     );
   }

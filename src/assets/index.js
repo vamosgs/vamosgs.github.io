@@ -8,3 +8,4 @@ import './webpack.png';
 import './flow.svg';
 import './less.svg';
 import './sass.svg';
+import './favicon.ico';

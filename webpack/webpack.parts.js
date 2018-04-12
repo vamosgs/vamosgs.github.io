@@ -18,7 +18,6 @@ exports.buildSetup = env => ({
     new HtmlWebpackPlugin({
       template: PATHS.TEMPLATE,
       title,
-      favicon: 'webpack/favicon.ico',
       filename: 'index.html',
       inject: 'body',
       minify:
