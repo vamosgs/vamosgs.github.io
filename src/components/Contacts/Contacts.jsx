@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ContactsStyles.less';
+import Form from './Form';
 
 class Contacts extends Component {
   constructor(props) {
@@ -89,33 +90,11 @@ class Contacts extends Component {
     return (
       <div className="Contact">
         <h2>Send me mail</h2>
-        <form onSubmit={this.handleSubmit}>
-          {name.error && <p className="err">{name.error}</p>}
-          <input
-            value={name.value}
-            onChange={this.handleChange('name')}
-            type="text"
-            placeholder="Name"
-          />
-          {mail.error && <p className="err">{mail.error}</p>}
-          <input
-            value={mail.value}
-            onChange={this.handleChange('mail')}
-            type="text"
-            placeholder="Email"
-          />
-          {message.error && <p className="err">{message.error}</p>}
-          <textarea
-            value={message.value}
-            onChange={this.handleChange('message')}
-            validate="false"
-            name="message"
-            placeholder="Message..․"
-            cols="30"
-            rows="10"
-          />
-          <button>Send</button>
-        </form>
+        <Form
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
+          data={{ name, message, mail }}
+        />
       </div>
     );
   }
