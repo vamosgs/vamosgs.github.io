@@ -37,7 +37,7 @@ class Modal extends React.Component {
             <Route path="/projects" component={Projects} />
             <Route path="/packages" component={Packages} />
             <Route path="/designs" component={Designs} />
-            <Route path="/contacts" component={Contacts} />
+            <Route path="/contact" component={Contacts} />
           </Switch>
         </div>
       );

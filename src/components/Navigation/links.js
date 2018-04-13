@@ -3,5 +3,5 @@ export default [
   { name: 'projects', link: 'projects' },
   { name: 'packages', link: 'packages' },
   { name: 'designs', link: 'designs' },
-  { name: 'contacts', link: 'contacts' },
+  { name: 'contact me', link: 'contact' },
 ];

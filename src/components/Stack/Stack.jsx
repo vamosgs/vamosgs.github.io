@@ -11,53 +11,47 @@ class Stack extends React.Component {
     };
   }
   componentDidMount() {
-    if (!this.props.stackLoaded) {
-      setTimeout(() => {
-        this.setState({ loaded: true });
-        this.props.load();
-      }, 200);
-    }
-  }
-  componentWillUnmount() {
-    console.log('object');
+    setTimeout(() => {
+      this.setState({ loaded: true });
+    }, 200);
   }
   render() {
     const { frontend, backend } = stack;
+    const { loaded } = this.state;
     return (
       <div className="Stack">
         <h2>Technologies that I use:</h2>
-        {this.state.loaded ? (
-          <div className="stack">
-            <div className="tech front">
-              <h3>Frontend:</h3>
-              <ul>
-                {frontend.map((item, i) => (
-                  <li key={i}>
-                    {item.name}
-                    <img alt="nice" src={`assets/${item.image}`} />
-                    {/* {!(i === frontend.length - 1) && ','} */}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="tech back">
-              <h3>Backend:</h3>
-              <ul>
-                {backend.map((item, i) => (
-                  <li key={i}>
-                    {item.name}
-                    <img alt="nice" src={`assets/${item.image}`} />
-                    {/* {!(i === backend.length - 1) && ','} */}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ) : (
+        {!loaded && (
           <div className="load">
-            <Loader type="Puff" color="slategrey" height="50" width="50" />
+            <Loader />
           </div>
         )}
+        <div className="stack">
+          <div className="tech front">
+            <h3>Frontend:</h3>
+            <ul>
+              {frontend.map((item, i) => (
+                <li key={i}>
+                  {item.name}
+                  <img alt="nice" src={`assets/${item.image}`} />
+                  {/* {!(i === frontend.length - 1) && ','} */}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="tech back">
+            <h3>Backend:</h3>
+            <ul>
+              {backend.map((item, i) => (
+                <li key={i}>
+                  {item.name}
+                  <img alt="nice" src={`assets/${item.image}`} />
+                  {/* {!(i === backend.length - 1) && ','} */}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     );
   }

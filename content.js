@@ -2,9 +2,19 @@ module.exports = {
   title: 'VamOSGS',
   name: 'Gegham Samvelyan',
   work: 'Developer/Designer',
+  mail: 'gegham.samvelyan@hotmail.com',
   // projects: ['all'],
   // projects: [8],
-  projects: ['react-preloaders', 'Infinite-scroll', 'jwt-koa', 'koa-starter', '2048game', 'chat-io', 'Store', 'DiscussM-backend'],
+  projects: [
+    'react-preloaders',
+    'Infinite-scroll',
+    'jwt-koa',
+    'koa-starter',
+    '2048game',
+    'chat-io',
+    'Store',
+    'DiscussM-backend',
+  ],
   stack: {
     frontend: [
       { name: 'React', image: 'react.png' },
