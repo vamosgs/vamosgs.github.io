@@ -4,4 +4,5 @@ module.exports = {
   behance: 'https://www.behance.net/VamOSGS',
   tumblr: 'http://vamosgs.tumblr.com/',
   facebook: 'https://www.facebook.com/vamosGSs',
+  twitter: 'https://twitter.com/VAMOSGSvlv',
 };

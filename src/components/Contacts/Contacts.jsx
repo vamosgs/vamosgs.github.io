@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './ContactsStyles.less';
 import Form from './Form';
+import { fetchApi } from '../../utlis';
+import { authorization, url } from '../../../mail_config';
 
 class Contacts extends Component {
   constructor(props) {
     super(props);
     this.state = {
       errors: [],
+      mailStatus: {
+        sent: false,
+        success: false,
+      },
       name: {
         value: '',
         error: '',
@@ -55,12 +61,6 @@ class Contacts extends Component {
           mail: { value: '', error: 'Email required' },
         });
       }
-      // if (!password.value) {
-      //   this.setState({
-      //     errors: [...this.state.errors, 'password'],
-      //     password: { err: 'This field required' },
-      //   });
-      // }
       resolve();
     });
   }
@@ -71,12 +71,21 @@ class Contacts extends Component {
         errors, name, mail, message,
       } = this.state;
       if (errors.length === 0) {
-        const data = {
+        const body = JSON.stringify({
           name: name.value,
           mail: mail.value,
           message: message.value,
-        };
-        console.log('SEND', data);
+        });
+        // fetchApi(url, {
+        //   method: 'POST',
+        //   headers: { Authorization: authorization },
+        //   body,
+        // }).then(({ success }) => {
+        //   this.setState({ mailStatus: { sent: true, success } });
+        // });
+        setTimeout(() => {
+          this.setState({ mailStatus: { sent: true, success: false } });
+        }, 500);
       }
     });
   };
@@ -86,15 +95,23 @@ class Contacts extends Component {
     this.setState({ errors: removedErr, [prop]: { value: e.target.value, error: false } });
   };
   render() {
-    const { name, mail, message } = this.state;
+    const {
+      name, mail, message, mailStatus,
+    } = this.state;
     return (
       <div className="Contact">
-        <h2>Send me mail</h2>
-        <Form
-          onSubmit={this.handleSubmit}
-          onChange={this.handleChange}
-          data={{ name, message, mail }}
-        />
+        {mailStatus.sent ? (
+          <h2>{mailStatus.success ? 'Mail successfully sent' : 'This functional in development progress..'}</h2>
+        ) : (
+          <Fragment>
+            <h2>Send me mail</h2>
+            <Form
+              onSubmit={this.handleSubmit}
+              onChange={this.handleChange}
+              data={{ name, message, mail }}
+            />
+          </Fragment>
+        )}
       </div>
     );
   }
