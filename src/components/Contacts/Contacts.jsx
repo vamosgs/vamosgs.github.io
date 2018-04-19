@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Loader from '../Loader';
 import './ContactsStyles.less';
 import Form from './Form';
 import { fetchApi } from '../../utlis';
@@ -12,6 +13,7 @@ class Contacts extends Component {
       mailStatus: {
         sent: false,
         success: false,
+        sending: false,
       },
       name: {
         value: '',
@@ -64,6 +66,15 @@ class Contacts extends Component {
       resolve();
     });
   }
+  sendMail(body) {
+    this.setState({ mailStatus: { sending: true } });
+    fetchApi(url, {
+      method: 'POST',
+      headers: { Authorization: authorization },
+      body,
+    }).then(({ success }) =>
+      this.setState({ mailStatus: { sending: false, sent: true, success } }));
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.validate().then(() => {
@@ -76,16 +87,7 @@ class Contacts extends Component {
           mail: mail.value,
           message: message.value,
         });
-        // fetchApi(url, {
-        //   method: 'POST',
-        //   headers: { Authorization: authorization },
-        //   body,
-        // }).then(({ success }) => {
-        //   this.setState({ mailStatus: { sent: true, success } });
-        // });
-        setTimeout(() => {
-          this.setState({ mailStatus: { sent: true, success: false } });
-        }, 500);
+        this.sendMail(body);
       }
     });
   };
@@ -100,8 +102,13 @@ class Contacts extends Component {
     } = this.state;
     return (
       <div className="Contact">
+        {mailStatus.sending && <Loader />}
         {mailStatus.sent ? (
-          <h2>{mailStatus.success ? 'Mail successfully sent' : 'This functional in development progress..'}</h2>
+          <h2>
+            {mailStatus.success
+              ? 'Mail successfully sent'
+              : 'This functional in development progress..'}
+          </h2>
         ) : (
           <Fragment>
             <h2>Send me mail</h2>
