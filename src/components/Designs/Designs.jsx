@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import links from '../../../links';
 import Loader from '../Loader';
 import List from './List';
 import './DesignsStyles.less';
@@ -27,11 +26,21 @@ class Designs extends Component {
         <h2>Some of my designs:</h2>
         <h3>
           See all in
-          <a className="link" href={links.behance} rel="noopener noreferrer" target="_blank">
+          <a
+            className="link"
+            href="https://www.behance.net/VamOSGS"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Behance
           </a>
           or
-          <a className="link" href={links.tumblr} rel="noopener noreferrer" target="_blank">
+          <a
+            className="link"
+            href="http://vamosgs.tumblr.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Tumblr
           </a>
         </h3>
