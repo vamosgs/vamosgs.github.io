@@ -58,10 +58,6 @@ const common = {
         loader: 'babel-loader',
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         use: [
           {

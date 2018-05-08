@@ -14,7 +14,6 @@ class Packages extends Component {
     return (
       <div className="Packages">
         <h2>Packages by me:</h2>
-
         {packages.length !== 0 ? (
           <List iterable={packages} />
         ) : (

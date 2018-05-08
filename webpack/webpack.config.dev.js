@@ -11,6 +11,14 @@ const development = merge(
       historyApiFallback: true,
       hot: true,
     },
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
+      ],
+    },
   },
   parts.buildSetup('development'),
   parts.setMode('development'),

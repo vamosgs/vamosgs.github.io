@@ -62,7 +62,7 @@
     "react-hot-loader": "^4.0.0",
     "react-icons": "^2.2.7",
     "react-loader-spinner": "^2.0.0",
-    "react-preloaders": "^2.1.1",
+    "react-preloaders": "^2.1.2",
     "react-redux": "^5.0.7",
     "react-reveal-text": "^0.1.1",
     "react-router-dom": "^4.2.2",
