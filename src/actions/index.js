@@ -1,7 +1,6 @@
-import api from '../api';
+import api from '../../api';
 import * as types from '../constants';
 import { filterProjects, fetchApi, chunk } from '../utlis';
-import { projects } from '../../content';
 
 export const setProjects = payload => ({
   type: types.GET_PROJECTS,
@@ -18,7 +17,20 @@ export const setDesigns = payload => ({
   payload,
 });
 
-export const fetchProjects = () => dispatch =>
+export const setData = payload => ({
+  type: types.GET_DATA,
+  payload,
+});
+
+export const fetchData = () => dispatch =>
+  fetchApi(api.data, {
+    headers: {
+      'secret-key': api.dataSecret,
+      private: false,
+    },
+  }).then(data => dispatch(setData(data)));
+
+export const fetchProjects = projects => dispatch =>
   fetchApi(api.github, {
     headers: {
       'user-agent': 'vamosgs',
@@ -26,13 +38,13 @@ export const fetchProjects = () => dispatch =>
     },
   }).then(res => dispatch(setProjects(filterProjects(res, projects))));
 
-export const fetchPackages = () => (dispatch) => {
-  let packages = [];
-  api.npm.forEach(url =>
-    fetchApi(url, {}).then((res) => {
-      packages = [...packages, res.collected.metadata];
-      if (packages.length === 2) {
-        dispatch(setPackages(packages));
+export const fetchPackages = packages => (dispatch) => {
+  let result = [];
+  packages.forEach(pkg =>
+    fetchApi(`${api.npm}${pkg}`, {}).then((res) => {
+      result = [...result, res.collected.metadata];
+      if (result.length === packages.length) {
+        dispatch(setPackages(result));
       }
     }));
 };

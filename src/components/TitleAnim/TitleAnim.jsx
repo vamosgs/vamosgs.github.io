@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactRevealText from 'react-reveal-text';
-import { title, name, work } from '../../../content';
 import './TitleAnimStyles.less';
 
 class TitleAnim extends Component {
@@ -18,17 +17,20 @@ class TitleAnim extends Component {
       });
     }, 500);
   }
+
   render() {
+    const { showSubTitle, showBigTitle } = this.state;
+    const { work, title, name } = this.props.data;
     return (
       <div className="Titles">
         <h2>
-          <ReactRevealText show={this.state.showSubTitle}>{work}</ReactRevealText>
+          <ReactRevealText show={showSubTitle}>{work}</ReactRevealText>
         </h2>
         <h1 className="title">
-          <ReactRevealText show={this.state.showBigTitle}>{title}</ReactRevealText>
+          <ReactRevealText show={showBigTitle}>{title}</ReactRevealText>
         </h1>
         <h2>
-          <ReactRevealText show={this.state.showSubTitle}>{name}</ReactRevealText>
+          <ReactRevealText show={showSubTitle}>{name}</ReactRevealText>
         </h2>
       </div>
     );

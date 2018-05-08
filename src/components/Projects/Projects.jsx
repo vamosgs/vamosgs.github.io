@@ -4,9 +4,9 @@ import List from './List';
 import './ProjectsStyles.less';
 
 class Projects extends Component {
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.projects.length === 0) {
-      this.props.fetchProjects();
+      this.props.fetchProjects(this.props.projectsList);
     }
   }
   render() {

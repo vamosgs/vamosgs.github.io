@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import TitleAnim from './TitleAnim';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = ({ dataReducer }) => ({
+  data: dataReducer,
+});
 
-const mapDispatchToProps = dispatch => ({});
-
-const TitleAnimContainer = connect(mapStateToProps, mapDispatchToProps)(TitleAnim);
+const TitleAnimContainer = connect(mapStateToProps)(TitleAnim);
 
 export default TitleAnimContainer;

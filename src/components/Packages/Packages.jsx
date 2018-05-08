@@ -6,7 +6,7 @@ import List from './List';
 class Packages extends Component {
   componentDidMount() {
     if (this.props.packages.length === 0) {
-      this.props.fetchPackages();
+      this.props.fetchPackages(this.props.packagesList);
     }
   }
   render() {
