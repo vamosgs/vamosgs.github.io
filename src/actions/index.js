@@ -22,8 +22,13 @@ export const setData = payload => ({
   payload,
 });
 
-export const fetchData = () => dispatch => fetchApi(api.data).then(data => dispatch(setData(data)));
-
+export const fetchData = () => dispatch =>
+  fetchApi(api.data, {
+    headers: {
+      'secret-key': api.key,
+      private: true,
+    },
+  }).then(data => dispatch(setData(data)));
 export const fetchProjects = projects => dispatch =>
   fetchApi(api.github, {
     headers: {
