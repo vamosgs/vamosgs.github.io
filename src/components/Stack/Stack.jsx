@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from '../Loader';
-import { stack } from '../../../content';
+import { frontend, backend } from '../../../stack';
 import './StackStyles.less';
 
 class Stack extends React.Component {
@@ -16,7 +16,6 @@ class Stack extends React.Component {
     }, 200);
   }
   render() {
-    const { frontend, backend } = stack;
     const { loaded } = this.state;
     return (
       <div className="Stack">

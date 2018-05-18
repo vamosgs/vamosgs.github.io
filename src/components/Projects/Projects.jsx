@@ -6,7 +6,7 @@ import './ProjectsStyles.less';
 class Projects extends Component {
   componentDidMount() {
     if (this.props.projects.length === 0) {
-      this.props.fetchProjects(this.props.projectsList);
+      this.props.fetchProjects(this.props.projectsList, this.props.filter);
     }
   }
   render() {

@@ -29,13 +29,13 @@ export const fetchData = () => dispatch =>
       private: true,
     },
   }).then(data => dispatch(setData(data)));
-export const fetchProjects = projects => dispatch =>
+export const fetchProjects = (projects, filter) => dispatch =>
   fetchApi(api.github, {
     headers: {
       'user-agent': 'vamosgs',
       'content-type': 'application/json',
     },
-  }).then(res => dispatch(setProjects(filterProjects(res, projects))));
+  }).then(res => dispatch(setProjects(filterProjects(res, projects, filter))));
 
 export const fetchPackages = packages => (dispatch) => {
   let result = [];

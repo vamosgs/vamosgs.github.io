@@ -8,11 +8,11 @@ export function sliceArray(arr, length) {
   return sliced;
 }
 
-export function filterProjects(projects, options) {
-  if (options.length > 1) {
-    const inFiltr = item => options.map(filter => item === filter).filter(remove => remove);
+export function filterProjects(projects, options, filter) {
+  if (filter === 'Custom') {
+    const inFiltr = item => options.map(f => item === f).filter(remove => remove);
     return projects.filter(item => inFiltr(item.name)[0]);
-  } else if (typeof options[0] === 'number') {
+  } else if (filter === 'Last N-s') {
     if (options[0] >= projects.length) {
       return projects;
     }
