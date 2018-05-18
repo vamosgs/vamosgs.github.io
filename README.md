@@ -9,4 +9,4 @@
 
 ### Backend for [contact page](https://vamosgs.github.io/contact) you can see in [mail-microservice](https://github.com/VamOSGS/mail-microservice).
 
-### [CMS](https://github.com/VamOSGS/cms) (Content management system) for vamosgs.github.io 
+### [CMS (Content management system)](https://github.com/VamOSGS/cms) for vamosgs.github.io 
