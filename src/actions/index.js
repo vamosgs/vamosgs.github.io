@@ -21,11 +21,10 @@ export const setData = payload => ({
   type: types.GET_DATA,
   payload,
 });
-
 export const fetchData = () => dispatch =>
   fetchApi(api.data, {
     headers: {
-      'secret-key': api.key,
+      'secret-key': key,
       private: true,
     },
   }).then(data => dispatch(setData(data)));
