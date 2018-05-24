@@ -7,7 +7,9 @@ const development = require('./webpack.config.dev');
 const PATHS = require('./PATHS');
 require('dotenv').config();
 
-const { ENV, KEY } = process.env;
+const {
+  ENV, KEY, AUTH, URL,
+} = process.env;
 const pathsToClean = ['dist'];
 
 const cleanOptions = {
@@ -29,7 +31,11 @@ const common = {
   },
   plugins: [
     new CleanWebpackPlugin(pathsToClean, cleanOptions),
-    new webpack.DefinePlugin({ key: JSON.stringify(KEY) }),
+    new webpack.DefinePlugin({
+      key: JSON.stringify(KEY),
+      authorization: JSON.stringify(AUTH),
+      url: JSON.stringify(URL),
+    }),
   ],
   optimization: {
     namedModules: true,

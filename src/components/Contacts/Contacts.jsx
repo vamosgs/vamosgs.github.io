@@ -3,7 +3,6 @@ import Loader from '../Loader';
 import './ContactsStyles.less';
 import Form from './Form';
 import { fetchApi } from '../../utlis';
-import { authorization, url } from '../../../mail_config';
 
 class Contacts extends Component {
   constructor(props) {
