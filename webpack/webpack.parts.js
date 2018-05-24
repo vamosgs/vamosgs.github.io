@@ -2,7 +2,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 /* eslint-enable */
-const { title } = require('../content');
 const PATHS = require('./PATHS');
 
 exports.setMode = mode => ({
@@ -17,7 +16,7 @@ exports.buildSetup = env => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: PATHS.TEMPLATE,
-      title,
+      title: 'VamOSGS',
       filename: 'index.html',
       inject: 'body',
       minify:

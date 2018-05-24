@@ -7,7 +7,6 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack/webpack.config.js --hot",
     "build": "webpack --config webpack/webpack.config.js",
-    "deploy": "gh-pages -b master -d dist",
     "eslint": "eslint",
     "gen": "plop --plopfile ./internals/generators/index.js"
   },
@@ -15,10 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/VamOSGS/vamosgs.github.io.git"
   },
-  "keywords": [
-    "vamosgs",
-    "Gegham Samvelyan"
-  ],
+  "keywords": ["vamosgs", "Gegham Samvelyan"],
   "author": "vamosgs",
   "homepage": "https://vamosgs.github.io/",
   "devDependencies": {
@@ -40,7 +36,6 @@
     "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
-    "gh-pages": "^1.1.0",
     "html-webpack-plugin": "^3.0.4",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
