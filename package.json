@@ -8,13 +8,17 @@
     "start": "webpack-dev-server --config webpack/webpack.config.js --hot",
     "build": "webpack --config webpack/webpack.config.js",
     "eslint": "eslint",
+    "deploy": "gh-pages -d dist -b master",
     "gen": "plop --plopfile ./internals/generators/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VamOSGS/vamosgs.github.io.git"
   },
-  "keywords": ["vamosgs", "Gegham Samvelyan"],
+  "keywords": [
+    "vamosgs",
+    "Gegham Samvelyan"
+  ],
   "author": "vamosgs",
   "homepage": "https://vamosgs.github.io/",
   "devDependencies": {
@@ -52,6 +56,7 @@
   },
   "dependencies": {
     "dotenv": "^5.0.1",
+    "gh-pages": "^1.1.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-hot-loader": "^4.0.0",
