@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const production = require('./webpack.config.prod');
 const development = require('./webpack.config.dev');
 const PATHS = require('./PATHS');
@@ -31,6 +32,7 @@ const common = {
   },
   plugins: [
     new CleanWebpackPlugin(pathsToClean, cleanOptions),
+    new CopyWebpackPlugin([{ from: 'src/assets/*', to: 'assets/', flatten: true }]),
     new webpack.DefinePlugin({
       key: JSON.stringify(KEY),
       authorization: JSON.stringify(AUTH),
@@ -68,27 +70,13 @@ const common = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(woff|woff2|eot|ttf|svg)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
               limit: 100000,
               name: 'assets/[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(jpe?g|png|gif|ico|svg)$/,
-        exclude: /(node_modules)/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              publicPath: 'assets/',
-              outputPath: 'assets/',
             },
           },
         ],
