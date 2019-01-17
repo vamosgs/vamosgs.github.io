@@ -4,29 +4,31 @@ import './ContactsStyles.less';
 import Form from './Form';
 import { fetchApi } from '../../utlis';
 
+const initalState = {
+  errors: [],
+  mailStatus: {
+    sent: false,
+    success: false,
+    sending: false,
+  },
+  name: {
+    value: '',
+    error: '',
+  },
+  mail: {
+    value: '',
+    error: '',
+  },
+  message: {
+    value: '',
+    error: '',
+  },
+};
+
 class Contacts extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      errors: [],
-      mailStatus: {
-        sent: false,
-        success: false,
-        sending: false,
-      },
-      name: {
-        value: '',
-        error: '',
-      },
-      mail: {
-        value: '',
-        error: '',
-      },
-      message: {
-        value: '',
-        error: '',
-      },
-    };
+    this.state = initalState;
   }
   validateEmail() {
     // eslint-disable-next-line no-useless-escape
@@ -95,6 +97,9 @@ class Contacts extends Component {
     removedErr.pop();
     this.setState({ errors: removedErr, [prop]: { value: e.target.value, error: false } });
   };
+  restore = () => {
+    this.setState(initalState);
+  };
   render() {
     const {
       name, mail, message, mailStatus,
@@ -103,18 +108,26 @@ class Contacts extends Component {
       <div className="Contact">
         {mailStatus.sending && <Loader />}
         {mailStatus.sent ? (
-          <h2>
-            {mailStatus.success
-              ? 'Mail successfully sent'
-              : 'This functional in development progress..'}
-          </h2>
+          <Fragment>
+            <h2>
+              {mailStatus.success
+                ? 'Mail successfully sent'
+                : 'Sorry, somthing went wrong..(( Contact me with mail gegham.samvelyan@hotmail.com'}
+            </h2>
+            <button onClick={this.restore}>go back</button>
+          </Fragment>
         ) : (
           <Fragment>
+            {mailStatus.sending && <div className="disableForm" />}
             <h2>Send me mail</h2>
             <Form
               onSubmit={this.handleSubmit}
               onChange={this.handleChange}
-              data={{ name, message, mail }}
+              data={{
+                name,
+                message,
+                mail,
+              }}
             />
           </Fragment>
         )}

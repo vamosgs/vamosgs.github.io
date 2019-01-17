@@ -3,19 +3,9 @@ import React from 'react';
 const Form = ({ onSubmit, onChange, data }) => (
   <form onSubmit={onSubmit}>
     {data.name.error && <p className="err">{data.name.error}</p>}
-    <input
-      value={data.name.value}
-      onChange={onChange('name')}
-      type="text"
-      placeholder="Name"
-    />
+    <input value={data.name.value} onChange={onChange('name')} type="text" placeholder="Name" />
     {data.mail.error && <p className="err">{data.mail.error}</p>}
-    <input
-      value={data.mail.value}
-      onChange={onChange('mail')}
-      type="text"
-      placeholder="Email"
-    />
+    <input value={data.mail.value} onChange={onChange('mail')} type="text" placeholder="Email" />
     {data.message.error && <p className="err">{data.message.error}</p>}
     <textarea
       value={data.message.value}
