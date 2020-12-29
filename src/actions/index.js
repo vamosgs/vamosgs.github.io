@@ -21,13 +21,17 @@ export const setData = payload => ({
   type: types.GET_DATA,
   payload,
 });
-export const fetchData = () => dispatch =>
-  fetchApi(api.data, {
-    headers: {
-      'secret-key': key,
-      private: true,
-    },
-  }).then(data => dispatch(setData(data)));
+// OLD API VERSION WITH ONLINE JSON FILE
+// export const fetchData = () => dispatch =>
+//   fetchApi(api.data, {
+//     headers: {
+//       'secret-key': key,
+//       private: true,
+//     },
+//   }).then(data => dispatch(setData(data)));
+
+export const fetchData = () => api.data;
+
 export const fetchProjects = (projects, filter) => dispatch =>
   fetchApi(api.github, {
     headers: {

@@ -11,10 +11,10 @@ class App extends Component {
     loaded: false,
   };
   componentWillMount() {
-    this.props.getData().then(() => {
+    if (this.props.getData()) {
       this.setState({ loaded: true });
-      document.getElementById('preloader').classList.add('close');
-    });
+      // document.getElementById('preloader').classList.add('close');
+    }
   }
   render() {
     return (

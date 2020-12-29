@@ -20,7 +20,7 @@ class TitleAnim extends Component {
 
   render() {
     const { showSubTitle, showBigTitle } = this.state;
-    const { work, title, name } = this.props.data;
+    const { work, title, name } = this.props.data();
     return (
       <div className="Titles">
         <h2>
